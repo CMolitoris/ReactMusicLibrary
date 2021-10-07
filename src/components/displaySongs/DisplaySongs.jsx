@@ -1,45 +1,37 @@
-import React, { Component } from 'react';
-import axios from 'axios';
+import React from 'react';
+import DeleteSong from '../DeleteSong/DeleteSong';
+import './DisplaySongs.css'
 
-class DisplaySongs extends Component {
-    constructor(props) {
-        super(props);
-        this.state = { 
-            songs: []
-         }
-    }
-
-    componentDidMount = () => {
-        this.getAllSongs();
-    }
-
-    getAllSongs = async () => {
-        let response = await axios.get("http://127.0.0.1:8000/music/")
-        this.setState({
-            songs: response.data
-        })
-    }
-
-    render() { 
-        return ( 
-            <div>
+const DisplaySongs = (props) => {
+    return ( 
+        <div>
             <table>
                 <thead>
                     <tr>
                         <th>Title</th>
-                        <th>Album</th>
                         <th>Artist</th>
+                        <th>Album</th>
                         <th>Release Date</th>
                     </tr>
                 </thead>
                 <tbody>
-                    
+                    {props.songs.map((song,index)=>{
+                        return (
+                            <tr key={index}>
+                                <td>{song.title}</td>
+                                <td>{song.artist}</td>
+                                <td>{song.album}</td>
+                                <td>{song.release_date}</td>
+                                <DeleteSong song={song} deleteSong={props.deleteSong}/>
+                            </tr>
+                        )
+                    })}   
                 </tbody>
             </table>
         </div>
-         );
-    }
+     );
 }
  
 export default DisplaySongs;
+
 
