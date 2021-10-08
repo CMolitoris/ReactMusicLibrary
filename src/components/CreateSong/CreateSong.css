@@ -3,3 +3,7 @@ div {
     margin-right: auto;
     padding: 55px;
 }
+
+.border {
+    border: 1px solid black;
+}

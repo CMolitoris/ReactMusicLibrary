@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import DisplaySongs from './components/DisplaySongs/DisplaySongs';
 import axios from 'axios';
 import CreateSong from './components/CreateSong/CreateSong';
+import FilterSongs from './components/FilterSongs/FilterSongs';
 
 class App extends Component {
   constructor(props) {
@@ -55,9 +56,69 @@ class App extends Component {
     this.getAllSongs()
   }
 
-  filterSongs = (type) => {
-    let tempSongs = this.state.songs;
+  filterSongs = (input,criteriaString) => {
+    
+    if(criteriaString==='all') {
+      this.getAllSongs()
+    } else {
+        let tempSongs = this.state.songs;
+        let filteredSongs = []
+        switch(criteriaString) {
+          case 'title':
+            filteredSongs = tempSongs.filter((element) => {
+              return element.title===input
+            })
+            this.setState({
+            songs: filteredSongs
+            })
+            break;
+          case 'artist':
+            filteredSongs = tempSongs.filter((element) => {
+              return element.artist===input
+            })
+            this.setState({
+            songs: filteredSongs
+            })
+            break;
+          case 'album':
+            filteredSongs = tempSongs.filter((element) => {
+              return element.album===input
+            })
+            this.setState({
+            songs: filteredSongs
+            })
+            break;
+          case 'genre':
+            filteredSongs = tempSongs.filter((element) => {
+              return element.genre===input
+            })
+            this.setState({
+            songs: filteredSongs
+            })
+            break;
+          case 'release_date':
+            filteredSongs = tempSongs.filter((element) => {
+              return element.release_date===input
+            })
+            this.setState({
+            songs: filteredSongs
+            })
+            break;   
+          default:
+            this.getAllSongs()     
+      }
+        
+    }
+  }
 
+  filterHelper = (input) => {
+    let tempSongs = this.state.songs;
+    let filteredSongs = tempSongs.filter((element) => {
+      return element.artist===input
+    })
+    this.setState({
+    songs: filteredSongs
+    })
   }
 
   render() {
@@ -65,6 +126,7 @@ class App extends Component {
     return ( 
       <div>
           <DisplaySongs deleteSong={this.handleRemove} songs={this.state.songs}/>
+          <FilterSongs filterSongs={this.filterSongs}/>
           <CreateSong createSong={this.createSong}/>
       </div>
      );

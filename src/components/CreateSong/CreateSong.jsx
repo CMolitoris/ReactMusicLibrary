@@ -33,7 +33,8 @@ class CreateSong extends Component {
 
     render() { 
         return ( 
-            <div>
+            <div className="border">
+                <h4>Add Song</h4>
                 <form onSubmit={(event) => this.handleSubmit(event)}>
                 <label>Title: </label>
                 <input type="text" name="title" onChange={this.handleChange} value={this.state.title}/>
