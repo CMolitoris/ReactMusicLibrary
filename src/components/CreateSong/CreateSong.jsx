@@ -8,7 +8,8 @@ class CreateSong extends Component {
             title: '',
             artist: '',
             album: '',
-            release_date: ''
+            release_date: '',
+            genre: ''
          }
     }
 
@@ -21,12 +22,13 @@ class CreateSong extends Component {
     handleSubmit = (event) => {
         event.preventDefault()
         this.props.createSong(this.state)
-        this.setState({
-            title: '',
-            artist: '',
-            album: '',
-            release_date: ''
-        })
+        // this.setState({
+        //     title: '',
+        //     artist: '',
+        //     album: '',
+        //     release_date: '',
+        //     genre: ''
+        // })
     }
 
     render() { 
@@ -41,6 +43,9 @@ class CreateSong extends Component {
                 <input type="text" name="album" onChange={this.handleChange} value={this.state.album}/>
                 <label> Release Date: </label>
                 <input type="datetime-local" name="release_date" onChange={this.handleChange} value={this.state.release_date}/>
+                <label> Genre: </label>
+                <input type="text" name="genre" onChange={this.handleChange} value={this.state.genre}/>
+                
                 <button type="submit">Add Song</button>
             </form>
             </div>

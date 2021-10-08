@@ -48,22 +48,16 @@ class App extends Component {
   };
 
   createSong = async (newSong) => {
-    let tempSongs = this.state.songs
+    let tempSongs = this.state.songs;
     let response = await axios.post('http://127.0.0.1:8000/music/', newSong)
     tempSongs.push(response)
     console.log(response)
-    // this.setState({
-    //   songs: tempSongs
-    // })
     this.getAllSongs()
-    
-    // .then((response) => {
-    //   console.log(response);
-      
-    // })
-    // .catch(function (error) {
-    //   console.log(error);
-    // });
+  }
+
+  filterSongs = (type) => {
+    let tempSongs = this.state.songs;
+
   }
 
   render() {
