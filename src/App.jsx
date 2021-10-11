@@ -121,11 +121,24 @@ class App extends Component {
     })
   }
 
+  updateSong = async (song) => {
+    const url = `http://127.0.0.1:8000/music/${song.id}/`;
+    let response = await axios.put(url,song);
+    console.log(response);
+    let tempSongs = this.state.songs;
+    let index = tempSongs.findIndex(s => s.id === song.id)
+    tempSongs[index] = song;
+    this.setState({
+      songs: tempSongs
+    })
+
+  }
+
   render() {
     console.log(this.state.songs) 
     return ( 
       <div>
-          <DisplaySongs deleteSong={this.handleRemove} songs={this.state.songs}/>
+          <DisplaySongs deleteSong={this.handleRemove} updateSong={this.updateSong} songs={this.state.songs}/>
           <FilterSongs filterSongs={this.filterSongs}/>
           <CreateSong createSong={this.createSong}/>
       </div>

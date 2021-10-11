@@ -43,7 +43,7 @@ class CreateSong extends Component {
                 <label> Album: </label>
                 <input type="text" name="album" onChange={this.handleChange} value={this.state.album}/>
                 <label> Release Date: </label>
-                <input type="datetime-local" name="release_date" onChange={this.handleChange} value={this.state.release_date}/>
+                <input type="datetime" name="release_date" onChange={this.handleChange} value={this.state.release_date}/>
                 <label> Genre: </label>
                 <input type="text" name="genre" onChange={this.handleChange} value={this.state.genre}/>
                 
