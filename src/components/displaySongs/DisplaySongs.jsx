@@ -33,7 +33,7 @@ const DisplaySongs = (props) => {
                                     {/* <UpdateModal/> */}
                                     {/* <UpdateSong song={song} updateSong={props.updateSong}/> */}
                                     
-                                    <UpdateModalH/>
+                                    <UpdateModalH song={song} updateSong={props.updateSong}/>
                                 </span>
                                 
                             </tr>

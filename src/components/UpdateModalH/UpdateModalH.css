@@ -5,7 +5,7 @@
     position: fixed;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: left;
   }
   
   .modalContainer {
@@ -42,7 +42,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 1.7rem;
+    
     text-align: center;
   }
   

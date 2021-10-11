@@ -138,7 +138,7 @@ class App extends Component {
     console.log(this.state.songs) 
     return ( 
       <div>
-          <DisplaySongs deleteSong={this.handleRemove} updateSong={this.updateSong} songs={this.state.songs}/>
+          <DisplaySongs getSongs={this.getAllSongs} deleteSong={this.handleRemove} updateSong={this.updateSong} songs={this.state.songs}/>
           <FilterSongs filterSongs={this.filterSongs}/>
           <CreateSong createSong={this.createSong}/>
       </div>
