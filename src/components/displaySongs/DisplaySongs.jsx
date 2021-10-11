@@ -1,10 +1,12 @@
 import React from 'react';
 import DeleteSong from '../DeleteSong/DeleteSong';
-import UpdateSong from '../UpdateSong/UpdateSong';
+// import UpdateSong from '../UpdateSong/UpdateSong';
 import './DisplaySongs.css'
-import UpdateModal from '../UpdateModal/UpdateModal';
+import UpdateModalH from '../UpdateModalH/UpdateModalH';
 
 const DisplaySongs = (props) => {
+    
+    
     return ( 
         <div>
             <table>
@@ -26,17 +28,20 @@ const DisplaySongs = (props) => {
                                 <td>{song.album}</td>
                                 <td>{song.release_date}</td>
                                 <td>{song.genre}</td>
-                                
-                                <DeleteSong song={song} deleteSong={props.deleteSong}/>
-                                <UpdateModal />
-                                {/* <UpdateSong song={song} updateSong={props.updateSong}/> */}
-                                
+                                <span>
+                                    <DeleteSong song={song} deleteSong={props.deleteSong}/>
+                                    {/* <UpdateModal/> */}
+                                    {/* <UpdateSong song={song} updateSong={props.updateSong}/> */}
+                                    
+                                    <UpdateModalH/>
+                                </span>
                                 
                             </tr>
                         )
                     })}   
                 </tbody>
             </table>
+            
         </div>
      );
 }

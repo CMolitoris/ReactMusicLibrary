@@ -1,6 +1,6 @@
 import React,{ Button, useState } from 'react';
 import { Modal } from 'bootstrap';
-import {render} from 'react-dom'
+// import {render} from 'react-dom'
 
 
 
@@ -39,6 +39,6 @@ function UpdateModal() {
   
 }
 
-render(<UpdateModal/>)
+
 
 export default UpdateModal;
