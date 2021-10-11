@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import { Button } from 'react-bootstrap';
 import './UpdateModalH.css'
 
 class UpdateModalH extends Component {
@@ -16,7 +16,7 @@ class UpdateModalH extends Component {
          }
     }
 
-    setIsOpen = (bool) => {
+    setIsOpen = (bool=false) => {
         this.setState({
             isOpen: bool
         })
@@ -81,7 +81,7 @@ class UpdateModalH extends Component {
                                 </span>
                                 <div className="footer">
                                     <button onClick={() => this.setIsOpen(false)}>Cancel</button>
-                                    <button type="submit" onClick={this.props.getSongs}>Confirm</button>
+                                    <button type="submit">Confirm</button>
                                 </div>
                               
                             </form>
@@ -92,7 +92,7 @@ class UpdateModalH extends Component {
              );
         } 
         else {
-            return <button onClick={()=> this.setIsOpen(true)}>Update</button>
+            return <Button variant="success" onClick={()=> this.setIsOpen(true)}>Update</Button>
         }
         
     }

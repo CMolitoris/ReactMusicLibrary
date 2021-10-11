@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Button } from 'react-bootstrap';
 import './FilterSongs.css'
 
 class FilterSongs extends Component {
@@ -22,15 +23,15 @@ class FilterSongs extends Component {
 
     render() { 
         return ( 
-            <div>
+            <div className="searchBar">
                 <label>Search: </label>
                 <input type="text" name="input" onChange={this.handleChange} value={this.state.input}/>
-                <button onClick={() => this.props.filterSongs(this.state.input,'all')}>All</button>
-                <button onClick={() => this.props.filterSongs(this.state.input,'title')}>Title</button>
-                <button onClick={() => this.props.filterSongs(this.state.input,'album')}>Album</button>
-                <button onClick={() => this.props.filterSongs(this.state.input,'artist')}>Artist</button>
-                <button onClick={() => this.props.filterSongs(this.state.input,'release_date')}>Release Date</button>
-                <button onClick={() => this.props.filterSongs(this.state.input,'genre')}>Genre</button>
+                <Button variant="success" onClick={() => this.props.filterSongs(this.state.input,'all')}>All</Button>
+                <Button variant="success" onClick={() => this.props.filterSongs(this.state.input,'title')}>Title</Button>
+                <Button variant="success" onClick={() => this.props.filterSongs(this.state.input,'album')}>Album</Button>
+                <Button variant="success" onClick={() => this.props.filterSongs(this.state.input,'artist')}>Artist</Button>
+                <Button variant="success" onClick={() => this.props.filterSongs(this.state.input,'release_date')}>Release Date</Button>
+                <Button variant="success" onClick={() => this.props.filterSongs(this.state.input,'genre')}>Genre</Button>
             </div>
             
          );

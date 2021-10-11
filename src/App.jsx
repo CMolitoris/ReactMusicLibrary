@@ -4,6 +4,8 @@ import DisplaySongs from './components/DisplaySongs/DisplaySongs';
 import axios from 'axios';
 import CreateSong from './components/CreateSong/CreateSong';
 import FilterSongs from './components/FilterSongs/FilterSongs';
+import 'bootstrap/dist/css/bootstrap.css'
+import SearchBar from './components/SearchBar/SearchBar';
 
 class App extends Component {
   constructor(props) {
@@ -137,10 +139,28 @@ class App extends Component {
   render() {
     console.log(this.state.songs) 
     return ( 
-      <div>
-          <DisplaySongs getSongs={this.getAllSongs} deleteSong={this.handleRemove} updateSong={this.updateSong} songs={this.state.songs}/>
-          <FilterSongs filterSongs={this.filterSongs}/>
+      <div className="container">
+        <div className="row">
+          <div className="col-12">
+            <DisplaySongs getSongs={this.getAllSongs} deleteSong={this.handleRemove} updateSong={this.updateSong} songs={this.state.songs}/>
+          </div>
+          
+        </div>
+         
+        <div className="row">
+          <div className="col-4"></div>
+          <div>
+            <FilterSongs filterSongs={this.filterSongs}/>
+          </div>
+         
+          <div className="col-4"></div>
+        </div>
+          
+        <div className="row">
           <CreateSong createSong={this.createSong}/>
+        </div>
+        {/* <SearchBar /> */}
+          
       </div>
      );
   }

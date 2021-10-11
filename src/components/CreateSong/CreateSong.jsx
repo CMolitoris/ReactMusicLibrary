@@ -34,7 +34,7 @@ class CreateSong extends Component {
     render() { 
         return ( 
             <div className="border">
-                <h4>Add Song</h4>
+                <h5>Add Song</h5>
                 <form onSubmit={(event) => this.handleSubmit(event)}>
                 <label>Title: </label>
                 <input type="text" name="title" onChange={this.handleChange} value={this.state.title}/>
@@ -43,7 +43,7 @@ class CreateSong extends Component {
                 <label> Album: </label>
                 <input type="text" name="album" onChange={this.handleChange} value={this.state.album}/>
                 <label> Release Date: </label>
-                <input type="datetime" name="release_date" onChange={this.handleChange} value={this.state.release_date}/>
+                <input type="date" name="release_date" onChange={this.handleChange} value={this.state.release_date}/>
                 <label> Genre: </label>
                 <input type="text" name="genre" onChange={this.handleChange} value={this.state.genre}/>
                 
