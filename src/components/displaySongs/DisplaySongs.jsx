@@ -2,6 +2,7 @@ import React from 'react';
 import DeleteSong from '../DeleteSong/DeleteSong';
 import UpdateSong from '../UpdateSong/UpdateSong';
 import './DisplaySongs.css'
+import UpdateModal from '../UpdateModal/UpdateModal';
 
 const DisplaySongs = (props) => {
     return ( 
@@ -27,7 +28,8 @@ const DisplaySongs = (props) => {
                                 <td>{song.genre}</td>
                                 
                                 <DeleteSong song={song} deleteSong={props.deleteSong}/>
-                                <UpdateSong song={song} updateSong={props.updateSong}/>
+                                <UpdateModal />
+                                {/* <UpdateSong song={song} updateSong={props.updateSong}/> */}
                                 
                                 
                             </tr>
