@@ -5,7 +5,7 @@ import axios from 'axios';
 import CreateSong from './components/CreateSong/CreateSong';
 import FilterSongs from './components/FilterSongs/FilterSongs';
 import 'bootstrap/dist/css/bootstrap.css'
-import SearchBar from './components/SearchBar/SearchBar';
+
 
 class App extends Component {
   constructor(props) {
@@ -58,59 +58,92 @@ class App extends Component {
     this.getAllSongs()
   }
 
-  filterSongs = (input,criteriaString) => {
+  // filterSongs = (input,criteriaString) => {
     
-    if(criteriaString==='all') {
-      this.getAllSongs()
-    } else {
-        let tempSongs = this.state.songs;
-        let filteredSongs = []
-        switch(criteriaString) {
-          case 'title':
-            filteredSongs = tempSongs.filter((element) => {
-              return element.title===input
-            })
-            this.setState({
-            songs: filteredSongs
-            })
-            break;
-          case 'artist':
-            filteredSongs = tempSongs.filter((element) => {
-              return element.artist===input
-            })
-            this.setState({
-            songs: filteredSongs
-            })
-            break;
-          case 'album':
-            filteredSongs = tempSongs.filter((element) => {
-              return element.album===input
-            })
-            this.setState({
-            songs: filteredSongs
-            })
-            break;
-          case 'genre':
-            filteredSongs = tempSongs.filter((element) => {
-              return element.genre===input
-            })
-            this.setState({
-            songs: filteredSongs
-            })
-            break;
-          case 'release_date':
-            filteredSongs = tempSongs.filter((element) => {
-              return element.release_date===input
-            })
-            this.setState({
-            songs: filteredSongs
-            })
-            break;   
-          default:
-            this.getAllSongs()     
-      }
+  //   if(criteriaString==='all') {
+  //     this.getAllSongs()
+  //   } else {
+  //       let tempSongs = this.state.songs;
+  //       let filteredSongs = []
+  //       switch(criteriaString) {
+  //         case 'title':
+  //           filteredSongs = tempSongs.filter((element) => {
+  //             return element.title===input
+  //           })
+  //           this.setState({
+  //           songs: filteredSongs
+  //           })
+  //           break;
+  //         case 'artist':
+  //           filteredSongs = tempSongs.filter((element) => {
+  //             return element.artist===input
+  //           })
+  //           this.setState({
+  //           songs: filteredSongs
+  //           })
+  //           break;
+  //         case 'album':
+  //           filteredSongs = tempSongs.filter((element) => {
+  //             return element.album===input
+  //           })
+  //           this.setState({
+  //           songs: filteredSongs
+  //           })
+  //           break;
+  //         case 'genre':
+  //           filteredSongs = tempSongs.filter((element) => {
+  //             return element.genre===input
+  //           })
+  //           this.setState({
+  //           songs: filteredSongs
+  //           })
+  //           break;
+  //         case 'release_date':
+  //           filteredSongs = tempSongs.filter((element) => {
+  //             return element.release_date===input
+  //           })
+  //           this.setState({
+  //           songs: filteredSongs
+  //           })
+  //           break;   
+  //         default:
+  //           this.getAllSongs()     
+  //     }
         
-    }
+  //   }
+  // }
+
+  filterSongs = (input) => {
+    let tempSongs = this.state.songs.filter(s => {
+      if(input===""){
+          return true;
+      }
+      else if(s.title.toLowerCase().includes(input.toLowerCase())) {
+          return true;
+      }
+      else if(s.artist.toLowerCase().includes(input.toLowerCase())) {
+          return true;
+      }
+      else if(s.album.toLowerCase().includes(input.toLowerCase())) {
+          return true;
+      }
+      else if(s.genre.toLowerCase().includes(input.toLowerCase())) {
+          return true;
+      }
+      else if(s.release_date.includes(input)) {
+          return true;
+      } 
+    })
+      this.setState({
+        songs: tempSongs
+      })
+      if(input=='') {
+        this.getAllSongs()
+      }
+  }
+
+  likeSong = () => {
+
   }
 
   filterHelper = (input) => {
@@ -141,8 +174,8 @@ class App extends Component {
     return ( 
       <div className="container">
         <div className="row">
-          <div className="col-12">
-            <DisplaySongs getSongs={this.getAllSongs} deleteSong={this.handleRemove} updateSong={this.updateSong} songs={this.state.songs}/>
+          <div className="col-8">
+            <FilterSongs songs={this.state.songs} filterSongs={this.filterSongs}/>
           </div>
           
         </div>
@@ -150,17 +183,16 @@ class App extends Component {
         <div className="row">
           <div className="col-4"></div>
           <div>
-            <FilterSongs filterSongs={this.filterSongs}/>
+            <DisplaySongs getSongs={this.getAllSongs} deleteSong={this.handleRemove} updateSong={this.updateSong} songs={this.state.songs}/>
+            
           </div>
          
           <div className="col-4"></div>
         </div>
           
-        <div className="row">
+        <div className="App row">
           <CreateSong createSong={this.createSong}/>
         </div>
-        {/* <SearchBar /> */}
-          
       </div>
      );
   }
