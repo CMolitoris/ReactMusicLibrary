@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './CreateSong.css'
+import {Button} from 'react-bootstrap'
 
 class CreateSong extends Component {
     constructor(props) {
@@ -34,7 +35,7 @@ class CreateSong extends Component {
     render() { 
         return ( 
             <div className="border">
-                <h5>Add Song</h5>
+                <h5><strong>Add Song</strong></h5>
                 <form onSubmit={(event) => this.handleSubmit(event)}>
                 <label>Title: </label>
                 <input type="text" name="title" onChange={this.handleChange} value={this.state.title}/>
@@ -46,8 +47,9 @@ class CreateSong extends Component {
                 <input type="date" name="release_date" onChange={this.handleChange} value={this.state.release_date}/>
                 <label> Genre: </label>
                 <input type="text" name="genre" onChange={this.handleChange} value={this.state.genre}/>
+                <Button className="btn-success"  type="submit">Confirm</Button>
                 
-                <button type="submit">Add Song</button>
+                
             </form>
             </div>
             

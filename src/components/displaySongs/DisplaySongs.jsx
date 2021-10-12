@@ -4,7 +4,7 @@ import DeleteSong from '../DeleteSong/DeleteSong';
 import './DisplaySongs.css'
 import UpdateModalH from '../UpdateModalH/UpdateModalH';
 import {Table} from 'react-bootstrap'
-import Like from './Like/Like';
+import Like from '../Like/Like';
 
 
 const DisplaySongs = (props) => {

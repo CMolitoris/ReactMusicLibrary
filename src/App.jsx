@@ -5,6 +5,7 @@ import axios from 'axios';
 import CreateSong from './components/CreateSong/CreateSong';
 import FilterSongs from './components/FilterSongs/FilterSongs';
 import 'bootstrap/dist/css/bootstrap.css'
+import CreateSongModal from './components/CreateSongModal/CreateSongModal'
 
 
 class App extends Component {
@@ -133,17 +134,22 @@ class App extends Component {
       else if(s.release_date.includes(input)) {
           return true;
       } 
+      else {
+        return false;
+      }
     })
       this.setState({
         songs: tempSongs
       })
-      if(input=='') {
+      if(input==='') {
         this.getAllSongs()
       }
   }
 
-  likeSong = () => {
-
+  likeSong = async (song) => {
+    let url = `http://127.0.0.1:8000/music/${song.id}/likes/`
+    let response = await axios.patch(url)
+    this.getAllSongs()
   }
 
   filterHelper = (input) => {
@@ -172,28 +178,32 @@ class App extends Component {
   render() {
     console.log(this.state.songs) 
     return ( 
-      <div className="container">
+      
+      
+        <div className="container">
         <div className="row">
-          <div className="col-8">
-            <FilterSongs songs={this.state.songs} filterSongs={this.filterSongs}/>
-          </div>
-          
+          <div className="col-12"></div>
         </div>
-         
         <div className="row">
-          <div className="col-4"></div>
-          <div>
-            <DisplaySongs getSongs={this.getAllSongs} deleteSong={this.handleRemove} updateSong={this.updateSong} songs={this.state.songs}/>
+          <FilterSongs songs={this.state.songs} filterSongs={this.filterSongs}/>
+          <DisplaySongs likeSong={this.likeSong} getSongs={this.getAllSongs} deleteSong={this.handleRemove} updateSong={this.updateSong} songs={this.state.songs}/>
+        </div>
+
+        
+
+        {/* <CreateSong createSong={this.createSong}/>
+        <div className="App">
+          <div className="col-12">
             
           </div>
-         
-          <div className="col-4"></div>
+        </div> */}
+        <div className="row">
+          <CreateSongModal createSong={this.createSong}/>
         </div>
-          
-        <div className="App row">
-          <CreateSong createSong={this.createSong}/>
-        </div>
+        
+        
       </div>
+      
      );
   }
 }

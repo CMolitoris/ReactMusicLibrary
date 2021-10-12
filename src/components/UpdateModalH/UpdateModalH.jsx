@@ -80,8 +80,8 @@ class UpdateModalH extends Component {
                                     <input type="text" name="genre" onChange={this.handleChange} value={this.state.genre}/>
                                 </span>
                                 <div className="footer">
-                                    <button onClick={() => this.setIsOpen(false)}>Cancel</button>
-                                    <button type="submit">Confirm</button>
+                                    <Button className="btn-danger" onClick={() => this.setIsOpen(false)}>Cancel</Button>
+                                    <Button className="btn-success" type="submit">Confirm</Button>
                                 </div>
                               
                             </form>

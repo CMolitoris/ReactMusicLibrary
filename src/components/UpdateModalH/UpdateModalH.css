@@ -19,9 +19,13 @@
     padding: 25px;
     
   }
+
+  .modalContainer input {
+    width: 250px;
+    align-items: left;
+  }
   
   .modalContainer .title {
-    
     text-align: center;
     margin-top: 10px;
   }
@@ -59,7 +63,7 @@
     height: 45px;
     margin: 10px;
     border: none;
-    background-color: green;
+    
     color: white;
     border-radius: 8px;
     font-size: 20px;

@@ -3,7 +3,7 @@ import { Button } from 'react-bootstrap';
 
 const Like = (props) => {
     return ( 
-        <Button variant="success" onClick={() => props.deleteSong(props.song)}>Like</Button>
+        <Button variant="success" onClick={() => props.likeSong(props.song)}>Like</Button>
      );
 }
  

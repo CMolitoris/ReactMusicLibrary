@@ -25,16 +25,28 @@ class FilterSongs extends Component {
 
     render() { 
         return ( 
-            <div className="searchBar">
-                
-                <input type="text" placeholder="Filter your search.." name="input" onChange={this.handleChange} value={this.state.input}/>
-                {/* <Button variant="success" onClick={() => this.props.filterSongs(this.state.input,'all')}>All</Button>
-                <Button variant="success" onClick={() => this.props.filterSongs(this.state.input,'title')}>Title</Button>
-                <Button variant="success" onClick={() => this.props.filterSongs(this.state.input,'album')}>Album</Button>
-                <Button variant="success" onClick={() => this.props.filterSongs(this.state.input,'artist')}>Artist</Button>
-                <Button variant="success" onClick={() => this.props.filterSongs(this.state.input,'release_date')}>Release Date</Button>
-                <Button variant="success" onClick={() => this.props.filterSongs(this.state.input,'genre')}>Genre</Button> */}
+            
+            <div>
+                <input className="searchBar" type="text" placeholder="Filter your search.." name="input" onChange={this.handleChange} value={this.state.input}/>
+                        {/* <Button variant="success" onClick={() => this.props.filterSongs(this.state.input,'all')}>All</Button>
+                        <Button variant="success" onClick={() => this.props.filterSongs(this.state.input,'title')}>Title</Button>
+                        <Button variant="success" onClick={() => this.props.filterSongs(this.state.input,'album')}>Album</Button>
+                        <Button variant="success" onClick={() => this.props.filterSongs(this.state.input,'artist')}>Artist</Button>
+                        <Button variant="success" onClick={() => this.props.filterSongs(this.state.input,'release_date')}>Release Date</Button>
+                        <Button variant="success" onClick={() => this.props.filterSongs(this.state.input,'genre')}>Genre</Button> */}
+                    
             </div>
+            // <div className="container">
+            //     <div className="row">
+            //         <div className="col-8">
+                
+                        
+            //         </div>
+            //     </div>
+            // </div>
+                
+           
+          
             
          );
     }
